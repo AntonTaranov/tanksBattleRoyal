@@ -36,14 +36,13 @@ public class GUIController : MonoBehaviour {
     {
         if (GameResult != null)
         {
+            GameResult.enabled = true;
             if (win)
-            {
-                GameResult.enabled = true;
+            {             
                 GameResult.text = "Win";
             }
             else
             {
-                GameResult.enabled = true;
                 GameResult.text = "Lose";
             }
         }
