@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.Animations;
 
 public class GameController : MonoBehaviour, IShooter {
@@ -10,18 +9,20 @@ public class GameController : MonoBehaviour, IShooter {
     [SerializeField] Rigidbody2D BulletPrefab;
 
     [SerializeField] GameObject GameField;
-    [Header("UI Elements")]
-    [SerializeField] Text TanksCounter;
-    [SerializeField] Text HealthCounter;
-    [SerializeField] Text GameResult;
 
     Pers PlayerPers;
+    GUIController GUI;
 
     bool gameOver;
     List<Pers> tanks;
 
+    int AliveTanksCounter;
+    int PlayerHealthPoints; 
+
     void InitializeGame()
     {
+        AliveTanksCounter = 0;
+        PlayerHealthPoints = 0;
         if (GameField != null)
         {
             tanks = new List<Pers>();
@@ -31,11 +32,11 @@ public class GameController : MonoBehaviour, IShooter {
             }
         }
         gameOver = false;
-        if (GameResult != null)
+
+        if (GUI != null)
         {
-            GameResult.enabled = false;
+            GUI.HideResult();   
         }
-        
     }
 
     void CreatePlayer(ref int enemyCount, float x, float y)
@@ -43,6 +44,9 @@ public class GameController : MonoBehaviour, IShooter {
         enemyCount++;
         PlayerPers = Instantiate(PlayerPersPrefab, GameField.transform);
         PlayerPers.name = "Player_" + enemyCount;
+        PlayerPers.transform.localPosition = new Vector3(x, y);
+        var playerController = PlayerPers.gameObject.AddComponent<PlayerContorller>();
+        playerController.Shooter = this;
         SetCameraTarget(PlayerPers.transform);
         tanks.Add(PlayerPers);
     }
@@ -115,53 +119,54 @@ public class GameController : MonoBehaviour, IShooter {
 
 	// Use this for initialization
 	void Start () {
+        GUI = GetComponent<GUIController>();
         InitializeGame();
 	}
 	
 	// Update is called once per frame
 	void Update ()
     {
-        int aliveTanksCounter = 0;
+        int tanksCounter = 0;
         foreach(var tank in tanks)
         {
-            if (tank != null) aliveTanksCounter++;           
+            if (tank != null) tanksCounter++;           
         }
-        if (TanksCounter != null)
+        if (tanksCounter != AliveTanksCounter)
         {
-            TanksCounter.text = aliveTanksCounter + "";
+            AliveTanksCounter = tanksCounter;
+            if (GUI != null)
+            {
+                GUI.SetTanks(AliveTanksCounter);
+            }
         }
+
         if (PlayerPers != null)
         {
-            float vertical = Input.GetAxis("Vertical");
-            float horizontal = Input.GetAxis("Horizontal");
-            if (vertical > 0)
+            if (AliveTanksCounter == 1)
             {
-                PlayerPers.MoveForward();
+                if (GUI != null)
+                {
+                    GUI.ShowResult(true);
+                }
             }
-            if (horizontal > 0 || horizontal < 0)
+            if (PlayerPers.Health != PlayerHealthPoints)
             {
-                PlayerPers.AddRotation(horizontal);
-            }
-            if (PlayerPers.IsCanShoot && Input.GetButtonDown("Jump"))
-            {              
-                PersShooting(PlayerPers);                
-            }
-            HealthCounter.text = PlayerPers.Health + "";
-            if (aliveTanksCounter == 1)
-            {
-                GameResult.enabled = true;
-                GameResult.text = "Win";
+                PlayerHealthPoints = PlayerPers.Health;
+                if (GUI != null)
+                {
+                    GUI.SetHealth(PlayerHealthPoints);
+                }
             }
         }
         else if (!gameOver)
         {
             gameOver = true;
-            if (GameResult != null)
+            PlayerHealthPoints = 0;
+            if (GUI != null)
             {
-                GameResult.enabled = true;
-                GameResult.text = "Lose";
-                HealthCounter.text = "0";
-            }           
+                GUI.ShowResult(false);
+                GUI.SetHealth(PlayerHealthPoints);
+            }
         }
     }
 
