@@ -5,6 +5,10 @@
 [Bb]uilds/
 Assets/AssetStoreTools*
 
+# Project Tiny
+TinyExport/
+Tiny/
+
 # Visual Studio cache directory
 .vs/
 

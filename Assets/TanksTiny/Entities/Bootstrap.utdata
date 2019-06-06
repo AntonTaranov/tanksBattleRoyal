@@ -1,0 +1,66 @@
+﻿[{
+    "$TypeId": 4,
+    "Id": "77bcb663073340a8aeb1c3cd75bebc46",
+    "Name": "Bootstrap",
+    "ExportFlags": 0,
+    "SerializedVersion": 0,
+    "Entities": [
+        { "$TypeId": 9, "Id": "01a95782cd374b82bb32c1e397f4c95c", "Name": "Camera" },
+        { "$TypeId": 9, "Id": "fe3023617840479ca022330ac257fbeb", "Name": "GameManager" },
+        { "$TypeId": 9, "Id": "02b812329d8c45248dd1ed3e4032ee05", "Name": "Background" }
+    ]
+},
+{
+    "$TypeId": 5,
+    "Id": "01a95782cd374b82bb32c1e397f4c95c",
+    "Name": "Camera",
+    "Enabled": true,
+    "Static": false,
+    "Layer": 0,
+    "Components": [{
+        "Type": { "Id": "c895dbe72eb46ecb10d589d320151758", "Name": "TransformNode" }
+    }, {
+        "Type": { "Id": "70449d66178e0d9f66795c24f0fbbdfc", "Name": "TransformLocalPosition" }
+    }, {
+        "Type": { "Id": "2266a95f5d16ca1ddde710d7c047ba69", "Name": "TransformLocalRotation" }
+    }, {
+        "Type": { "Id": "f11fe490eefc969bbc3fde5eab5ccd1e", "Name": "TransformLocalScale" }
+    }, {
+        "Type": { "Id": "12692383f3fef3bb74c209888c5b0939", "Name": "Camera2D" }
+    }]
+},
+{
+    "$TypeId": 5,
+    "Id": "fe3023617840479ca022330ac257fbeb",
+    "Name": "GameManager",
+    "Enabled": true,
+    "Static": false,
+    "Layer": 0,
+    "Components": [{
+        "Type": { "Id": "0e8c1d9ee83844aab916a3b5a18e4418", "Name": "GameContext" }
+    }, {
+        "Type": { "Id": "798735fb15cc431a912c28fa5cfc5f47", "Name": "PlayerInput" }
+    }]
+},
+{
+    "$TypeId": 5,
+    "Id": "02b812329d8c45248dd1ed3e4032ee05",
+    "Name": "Background",
+    "Enabled": true,
+    "Static": false,
+    "Layer": 0,
+    "Components": [{
+        "Type": { "Id": "c895dbe72eb46ecb10d589d320151758", "Name": "TransformNode" }
+    }, {
+        "Type": { "Id": "70449d66178e0d9f66795c24f0fbbdfc", "Name": "TransformLocalPosition" }
+    }, {
+        "Type": { "Id": "2266a95f5d16ca1ddde710d7c047ba69", "Name": "TransformLocalRotation" }
+    }, {
+        "Type": { "Id": "f11fe490eefc969bbc3fde5eab5ccd1e", "Name": "TransformLocalScale" }
+    }, {
+        "Type": { "Id": "1c504a8a7963db0d32e89b527b90e057", "Name": "Sprite2DRenderer" },
+        "Properties": {
+            "sprite": { "$TypeId": 10, "Guid": "05679beacb7c03045af1903a0851bfc6", "FileId": 21300000, "Type": 3 }
+        }
+    }]
+}]

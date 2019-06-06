@@ -1,0 +1,29 @@
+﻿[{
+    "$TypeId": 3,
+    "Id": "1aad038af9b14316beb05aac022528fe",
+    "Name": "TankState",
+    "ExportFlags": 0,
+    "Unlisted": false,
+    "Visibility": 0,
+    "TypeCode": "Component",
+    "Fields": [{
+        "Id": "4b18994233224127abe52eaa484ba45e",
+        "Name": "Torque",
+        "FieldType": { "Id": "67325dccf2f047c19c7ef4a045354e67", "Name": "Float32" },
+        "Array": false,
+        "Visibility": 0,
+        "EditorOnly": false,
+        "Versioned": true
+    }, {
+        "Id": "3ba48e0a88474051a0a0be2e89f0b26f",
+        "Name": "Acceleration",
+        "FieldType": { "Id": "67325dccf2f047c19c7ef4a045354e67", "Name": "Float32" },
+        "Array": false,
+        "Visibility": 0,
+        "EditorOnly": false,
+        "Versioned": true
+    }],
+    "DefaultValue": {
+        "Type": { "Id": "1aad038af9b14316beb05aac022528fe", "Name": "TankState" }
+    }
+}]
