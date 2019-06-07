@@ -7,25 +7,8 @@ namespace game {
         
         OnUpdate():void {
 
-            this.world.forEach([game.PlayerInput, ut.Core2D.TransformLocalPosition, game.TankState],
-                (input, transform, tank) =>{
-
-                    if (input.Axis.x != 0)
-                    {
-                        tank.Torque += input.Axis.x * this.scheduler.deltaTime(); 
-                    } 
-                    else if (tank.Torque > 0)
-                    {
-                        tank.Torque += - this.scheduler.deltaTime();
-                        if (tank.Torque < 0 )
-                            tank.Torque = 0;
-                    }
-                    else if (tank.Torque < 0)
-                    {
-                        tank.Torque = tank.Torque + this.scheduler.deltaTime();
-                        if (tank.Torque > 0 )
-                            tank.Torque = 0;
-                    }
+            this.world.forEach([game.PlayerInput, ut.Core2D.TransformLocalPosition, ut.Core2D.TransformLocalRotation, game.TankState],
+                (input, transformPosition, transformRotation, tank) =>{
 
                     if (input.Axis.y != 0)
                     {
@@ -48,11 +31,42 @@ namespace game {
                             tank.Acceleration = 0;
                     }
 
-                    let x = transform.position.x;
-                    let y = transform.position.y += tank.Acceleration * this.scheduler.deltaTime();
+                    let moveDirection = new Vector3(0,1,0);
+                    moveDirection.applyQuaternion(transformRotation.rotation);
 
-                    transform.position = new Vector3(x, y, 0);
-                });
+                    let x = transformPosition.position.x += moveDirection.x * tank.Acceleration * this.scheduler.deltaTime();
+                    let y = transformPosition.position.y += moveDirection.y * tank.Acceleration * this.scheduler.deltaTime();
+
+                    transformPosition.position = new Vector3(x, y, 0);
+                
+                    if (input.Axis.x != 0)
+                    {
+                        tank.Torque += input.Axis.x * this.scheduler.deltaTime();
+                        if (tank.Torque > 1)
+                            tank.Torque = 1;
+                        else if (tank.Torque <-1)
+                            tank.Torque = -1; 
+                    } 
+                    else if (tank.Torque > 0)
+                    {
+                        tank.Torque += - this.scheduler.deltaTime();
+                        if (tank.Torque < 0 )
+                            tank.Torque = 0;
+                    }
+                    else if (tank.Torque < 0)
+                    {
+                        tank.Torque = tank.Torque + this.scheduler.deltaTime();
+                        if (tank.Torque > 0 )
+                            tank.Torque = 0;
+                    }
+
+                    let rotation = new Euler();
+                    rotation.setFromQuaternion(transformRotation.rotation);
+                    rotation.z = rotation.z -= tank.Torque * this.scheduler.deltaTime();
+
+                    transformRotation.rotation = transformRotation.rotation.setFromEuler(rotation);
+                }
+            );
 
         }
     }
