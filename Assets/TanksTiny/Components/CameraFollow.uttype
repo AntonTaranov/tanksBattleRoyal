@@ -1,0 +1,12 @@
+﻿[{
+    "$TypeId": 3,
+    "Id": "cc3c9a1109404f789452a6458c1ef335",
+    "Name": "CameraFollow",
+    "ExportFlags": 0,
+    "Unlisted": false,
+    "Visibility": 0,
+    "TypeCode": "Component",
+    "DefaultValue": {
+        "Type": { "Id": "cc3c9a1109404f789452a6458c1ef335", "Name": "CameraFollow" }
+    }
+}]

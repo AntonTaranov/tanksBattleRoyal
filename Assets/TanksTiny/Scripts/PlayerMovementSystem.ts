@@ -3,12 +3,33 @@ namespace game {
 
     /** New System */
     @ut.executeAfter(game.PlayerInputSystem)
+    @ut.executeBefore(game.CollisionsSystem)
     export class PlayerMovementSystem extends ut.ComponentSystem {
         
         OnUpdate():void {
 
-            this.world.forEach([game.PlayerInput, ut.Core2D.TransformLocalPosition, ut.Core2D.TransformLocalRotation, game.TankState],
-                (input, transformPosition, transformRotation, tank) =>{
+            this.world.forEach([ut.Entity, game.PlayerInput, ut.Core2D.TransformLocalPosition, ut.Core2D.TransformLocalRotation, game.TankState, game.MovingObject],
+                (entity, input, transformPosition, transformRotation, tank, movingObject) =>{
+
+                    if(this.world.hasComponent(entity, game.HitWall))
+                    {
+                        this.world.removeComponent(entity, game.HitWall);
+                        tank.Acceleration = 0;
+                        tank.Torque = 0;
+
+                        let x = transformPosition.position.x -= movingObject.LinearVelocity.x * this.scheduler.deltaTime();
+                        let y = transformPosition.position.y -= movingObject.LinearVelocity.y * this.scheduler.deltaTime();
+                        transformPosition.position = new Vector3(x, y, 0);
+
+                        let rotation = new Euler();
+                        rotation.setFromQuaternion(transformRotation.rotation);
+                        let rotationZ = rotation.z - movingObject.AngularVelocity * this.scheduler.deltaTime();
+                        rotation.z = rotationZ;
+
+                        transformRotation.rotation = transformRotation.rotation.setFromEuler(rotation);
+
+                        return;
+                    }
 
                     if (input.Axis.y != 0)
                     {
@@ -37,6 +58,9 @@ namespace game {
                     let x = transformPosition.position.x += moveDirection.x * tank.Acceleration * this.scheduler.deltaTime();
                     let y = transformPosition.position.y += moveDirection.y * tank.Acceleration * this.scheduler.deltaTime();
 
+                    movingObject.LinearVelocity = new Vector2((x - transformPosition.position.x) / this.scheduler.deltaTime(),
+                                                            (y - transformPosition.position.y) / this.scheduler.deltaTime());
+                    
                     transformPosition.position = new Vector3(x, y, 0);
                 
                     if (input.Axis.x != 0)
@@ -62,9 +86,19 @@ namespace game {
 
                     let rotation = new Euler();
                     rotation.setFromQuaternion(transformRotation.rotation);
-                    rotation.z = rotation.z -= tank.Torque * this.scheduler.deltaTime();
+                    let rotationZ = rotation.z - tank.Torque * this.scheduler.deltaTime();
+
+                    movingObject.AngularVelocity = (rotationZ - rotation.z) / this.scheduler.deltaTime();
+                    rotation.z = rotationZ;
 
                     transformRotation.rotation = transformRotation.rotation.setFromEuler(rotation);
+
+                    if (this.world.hasComponent(entity, game.CameraFollow))
+                    {
+                        let gameConfig = new game.GameConfig();
+                        gameConfig.MainPlayerPosition = new Vector2(x, y);
+                        this.world.setConfigData(gameConfig);
+                    }
                 }
             );
 

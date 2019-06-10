@@ -21,7 +21,15 @@ namespace game {
                             break;
                     }
 
-                });
+                }
+            );
+            this.world.forEach([ut.Core2D.Camera2D, ut.Core2D.TransformLocalPosition],
+                (camera, transform) =>{
+                    let gameConfig = this.world.getConfigData(game.GameConfig);
+                    transform.position = new Vector3(gameConfig.MainPlayerPosition.x, gameConfig.MainPlayerPosition.y, 0);
+                }
+            );
+
         }
     }
 }

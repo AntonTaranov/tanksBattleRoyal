@@ -79,5 +79,7 @@
         }
     }, {
         "Type": { "Id": "38283a6cef9faa790b5c9936163d59e3", "Name": "Physics2DConfig" }
+    }, {
+        "Type": { "Id": "5f937644c6bd4e8190832d0569597c90", "Name": "GameConfig" }
     }]
 }]

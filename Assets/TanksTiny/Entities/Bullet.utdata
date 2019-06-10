@@ -1,17 +1,17 @@
 ﻿[{
     "$TypeId": 4,
-    "Id": "bd39b7fe80a84e76ac79fd9a01291b9f",
-    "Name": "Player",
+    "Id": "f1e0368cf6954b549a58dcd86a900d92",
+    "Name": "Bullet",
     "ExportFlags": 0,
     "SerializedVersion": 0,
     "Entities": [
-        { "$TypeId": 9, "Id": "9edbe4a23b664be1b259e5589b9866c6", "Name": "Player" }
+        { "$TypeId": 9, "Id": "a064db5f39d240ef8d2d0d947a1a7cc0", "Name": "Sprite" }
     ]
 },
 {
     "$TypeId": 5,
-    "Id": "9edbe4a23b664be1b259e5589b9866c6",
-    "Name": "Player",
+    "Id": "a064db5f39d240ef8d2d0d947a1a7cc0",
+    "Name": "Sprite",
     "Enabled": true,
     "Static": false,
     "Layer": 0,
@@ -26,28 +26,34 @@
     }, {
         "Type": { "Id": "1c504a8a7963db0d32e89b527b90e057", "Name": "Sprite2DRenderer" },
         "Properties": {
-            "sprite": { "$TypeId": 10, "Guid": "1d522d4cc7810ec4792db6fbd2c603d3", "FileId": 21300000, "Type": 3 }
+            "sprite": { "$TypeId": 10, "Guid": "da04d86674910284d9d77739563ded3e", "FileId": 21300000, "Type": 3 },
+            "color": {
+                "Type": { "Id": "2a90a1633d6dc16cd37cdfaca7b93cea", "Name": "Color" },
+                "Properties": {
+                    "r": 1,
+                    "g": 1,
+                    "b": 1,
+                    "a": 1
+                }
+            }
         }
     }, {
-        "Type": { "Id": "798735fb15cc431a912c28fa5cfc5f47", "Name": "PlayerInput" }
-    }, {
-        "Type": { "Id": "1aad038af9b14316beb05aac022528fe", "Name": "TankState" }
+        "Type": { "Id": "b1e5348389156b7a260d6ed393754fba", "Name": "LayerSorting" },
+        "Properties": {
+            "order": 1
+        }
     }, {
         "Type": { "Id": "a015bc52c7befa4d7484891d74d2b574", "Name": "RectHitBox2D" },
         "Properties": {
             "box": {
                 "Type": { "Id": "f216da154c4054842adb590807e977ba", "Name": "Rect" },
                 "Properties": {
-                    "x": -0.22,
-                    "y": -0.24,
-                    "width": 0.44,
-                    "height": 0.48
+                    "x": -0.05,
+                    "y": -0.05,
+                    "width": 0.1,
+                    "height": 0.1
                 }
             }
         }
-    }, {
-        "Type": { "Id": "3ebccbbd1d6643db8648852a7b3ded8b", "Name": "MovingObject" }
-    }, {
-        "Type": { "Id": "cc3c9a1109404f789452a6458c1ef335", "Name": "CameraFollow" }
     }]
 }]

@@ -1,0 +1,29 @@
+﻿[{
+    "$TypeId": 3,
+    "Id": "3ebccbbd1d6643db8648852a7b3ded8b",
+    "Name": "MovingObject",
+    "ExportFlags": 0,
+    "Unlisted": false,
+    "Visibility": 0,
+    "TypeCode": "Component",
+    "Fields": [{
+        "Id": "522dbcc30089438599221f0d9e2be551",
+        "Name": "LinearVelocity",
+        "FieldType": { "Id": "3abb69286ddfc2d1c617a173c1eeb35d", "Name": "Vector2" },
+        "Array": false,
+        "Visibility": 0,
+        "EditorOnly": false,
+        "Versioned": true
+    }, {
+        "Id": "aeddc12ccbe54351a99c51c73510e0b3",
+        "Name": "AngularVelocity",
+        "FieldType": { "Id": "67325dccf2f047c19c7ef4a045354e67", "Name": "Float32" },
+        "Array": false,
+        "Visibility": 0,
+        "EditorOnly": false,
+        "Versioned": true
+    }],
+    "DefaultValue": {
+        "Type": { "Id": "3ebccbbd1d6643db8648852a7b3ded8b", "Name": "MovingObject" }
+    }
+}]
