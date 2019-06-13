@@ -5,13 +5,13 @@
     "ExportFlags": 0,
     "SerializedVersion": 0,
     "Entities": [
-        { "$TypeId": 9, "Id": "a064db5f39d240ef8d2d0d947a1a7cc0", "Name": "Sprite" }
+        { "$TypeId": 9, "Id": "a064db5f39d240ef8d2d0d947a1a7cc0", "Name": "Bullet" }
     ]
 },
 {
     "$TypeId": 5,
     "Id": "a064db5f39d240ef8d2d0d947a1a7cc0",
-    "Name": "Sprite",
+    "Name": "Bullet",
     "Enabled": true,
     "Static": false,
     "Layer": 0,
@@ -55,5 +55,9 @@
                 }
             }
         }
+    }, {
+        "Type": { "Id": "3ebccbbd1d6643db8648852a7b3ded8b", "Name": "MovingObject" }
+    }, {
+        "Type": { "Id": "27c4a32d58e047deb53f4c69327e785c", "Name": "Bullet" }
     }]
 }]

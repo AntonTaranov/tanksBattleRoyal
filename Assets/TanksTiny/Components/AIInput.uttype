@@ -1,0 +1,99 @@
+﻿[{
+    "$TypeId": 3,
+    "Id": "dd6f4a26d83840ae83d69776fdfa349f",
+    "Name": "AIInput",
+    "ExportFlags": 0,
+    "Unlisted": false,
+    "Visibility": 0,
+    "TypeCode": "Component",
+    "Fields": [{
+        "Id": "d9849639de9a4f709e85df78c16d4472",
+        "Name": "Axis",
+        "FieldType": { "Id": "3abb69286ddfc2d1c617a173c1eeb35d", "Name": "Vector2" },
+        "Array": false,
+        "Visibility": 0,
+        "EditorOnly": false,
+        "Versioned": true
+    }, {
+        "Id": "3b707f050f434af69c8d5fef3899dce0",
+        "Name": "Space",
+        "FieldType": { "Id": "2b477f505af74487b7092b5617d88d3f", "Name": "Boolean" },
+        "Array": false,
+        "Visibility": 0,
+        "EditorOnly": false,
+        "Versioned": true
+    }, {
+        "Id": "9cdb4534375f49289947c8d13803f968",
+        "Name": "SpeedRandom",
+        "FieldType": { "Id": "67325dccf2f047c19c7ef4a045354e67", "Name": "Float32" },
+        "Array": false,
+        "Visibility": 0,
+        "EditorOnly": false,
+        "Versioned": true
+    }, {
+        "Id": "92c399a105f8460dbfd2ae44ba064a4e",
+        "Name": "MoveRandom",
+        "FieldType": { "Id": "67325dccf2f047c19c7ef4a045354e67", "Name": "Float32" },
+        "Array": false,
+        "Visibility": 0,
+        "EditorOnly": false,
+        "Versioned": true
+    }, {
+        "Id": "88a345de0c094732a5d111956c63d42c",
+        "Name": "ShootRandom",
+        "FieldType": { "Id": "67325dccf2f047c19c7ef4a045354e67", "Name": "Float32" },
+        "Array": false,
+        "Visibility": 0,
+        "EditorOnly": false,
+        "Versioned": true
+    }, {
+        "Id": "9d70afbff38b44d69cdc478da914d504",
+        "Name": "RotateRandom",
+        "FieldType": { "Id": "67325dccf2f047c19c7ef4a045354e67", "Name": "Float32" },
+        "Array": false,
+        "Visibility": 0,
+        "EditorOnly": false,
+        "Versioned": true
+    }, {
+        "Id": "b6db814ac6d64a129911ef3e58388912",
+        "Name": "CommandDelay",
+        "FieldType": { "Id": "67325dccf2f047c19c7ef4a045354e67", "Name": "Float32" },
+        "Array": false,
+        "Visibility": 0,
+        "EditorOnly": false,
+        "Versioned": true
+    }, {
+        "Id": "e0a549d767674993a1c39b1b572d9f2c",
+        "Name": "MoveActive",
+        "FieldType": { "Id": "2b477f505af74487b7092b5617d88d3f", "Name": "Boolean" },
+        "Array": false,
+        "Visibility": 0,
+        "EditorOnly": false,
+        "Versioned": true
+    }, {
+        "Id": "480181f28ec74554829936efeb02d440",
+        "Name": "RotateDirection",
+        "FieldType": { "Id": "27c155635ccb4ab2bcb79ef5aaf129ec", "Name": "Int8" },
+        "Array": false,
+        "Visibility": 0,
+        "EditorOnly": false,
+        "Versioned": true
+    }, {
+        "Id": "fea90dc211d14d8d9b964c50d78f01b4",
+        "Name": "ShootActive",
+        "FieldType": { "Id": "2b477f505af74487b7092b5617d88d3f", "Name": "Boolean" },
+        "Array": false,
+        "Visibility": 0,
+        "EditorOnly": false,
+        "Versioned": true
+    }],
+    "DefaultValue": {
+        "Type": { "Id": "dd6f4a26d83840ae83d69776fdfa349f", "Name": "AIInput" },
+        "Properties": {
+            "SpeedRandom": 0.5,
+            "MoveRandom": 0.5,
+            "ShootRandom": 0.5,
+            "RotateRandom": 0.5
+        }
+    }
+}]

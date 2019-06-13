@@ -21,9 +21,13 @@ namespace game {
                         if(!this.world.exists(otherEntity)){
                             continue;
                         }
-                        if (this.world.hasComponent(otherEntity, game.Wall))
+                        if (!this.world.hasComponent(entity, game.HitWall))
                         {
                             this.world.addComponent(entity, game.HitWall);
+                        }
+                        if (this.world.hasComponent(entity, game.TankState) && this.world.hasComponent(otherEntity, game.Bullet))
+                        {
+                            this.world.addComponent(entity, game.HitBullet);
                         }
                     }
                 }

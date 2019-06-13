@@ -1,0 +1,53 @@
+﻿[{
+    "$TypeId": 4,
+    "Id": "1caebbbd16d04db49bb83c0ec26eb141",
+    "Name": "EnemyTank",
+    "ExportFlags": 0,
+    "SerializedVersion": 0,
+    "Entities": [
+        { "$TypeId": 9, "Id": "ef4d9159dd2849beb36d1881afcbae1e", "Name": "Tank" }
+    ]
+},
+{
+    "$TypeId": 5,
+    "Id": "ef4d9159dd2849beb36d1881afcbae1e",
+    "Name": "Tank",
+    "Enabled": true,
+    "Static": false,
+    "Layer": 0,
+    "Components": [{
+        "Type": { "Id": "c895dbe72eb46ecb10d589d320151758", "Name": "TransformNode" }
+    }, {
+        "Type": { "Id": "70449d66178e0d9f66795c24f0fbbdfc", "Name": "TransformLocalPosition" }
+    }, {
+        "Type": { "Id": "2266a95f5d16ca1ddde710d7c047ba69", "Name": "TransformLocalRotation" }
+    }, {
+        "Type": { "Id": "f11fe490eefc969bbc3fde5eab5ccd1e", "Name": "TransformLocalScale" }
+    }, {
+        "Type": { "Id": "1c504a8a7963db0d32e89b527b90e057", "Name": "Sprite2DRenderer" },
+        "Properties": {
+            "sprite": { "$TypeId": 10, "Guid": "364b32e39538fa54d987978a8344fe01", "FileId": 21300000, "Type": 3 }
+        }
+    }, {
+        "Type": { "Id": "1aad038af9b14316beb05aac022528fe", "Name": "TankState" }
+    }, {
+        "Type": { "Id": "3ebccbbd1d6643db8648852a7b3ded8b", "Name": "MovingObject" }
+    }, {
+        "Type": { "Id": "1b167762705c4d81836b5a26fb0f6649", "Name": "Enemy" }
+    }, {
+        "Type": { "Id": "dd6f4a26d83840ae83d69776fdfa349f", "Name": "AIInput" }
+    }, {
+        "Type": { "Id": "a015bc52c7befa4d7484891d74d2b574", "Name": "RectHitBox2D" },
+        "Properties": {
+            "box": {
+                "Type": { "Id": "f216da154c4054842adb590807e977ba", "Name": "Rect" },
+                "Properties": {
+                    "x": -0.22,
+                    "y": -0.24,
+                    "width": 0.44,
+                    "height": 0.48
+                }
+            }
+        }
+    }]
+}]

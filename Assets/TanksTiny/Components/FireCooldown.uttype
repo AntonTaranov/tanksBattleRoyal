@@ -1,0 +1,24 @@
+﻿[{
+    "$TypeId": 3,
+    "Id": "c72d80df66d14a7d978e8d84985aaf16",
+    "Name": "FireCooldown",
+    "ExportFlags": 0,
+    "Unlisted": false,
+    "Visibility": 0,
+    "TypeCode": "Component",
+    "Fields": [{
+        "Id": "3ce4862326e0425d8de7733a4b0dd893",
+        "Name": "TimeOut",
+        "FieldType": { "Id": "67325dccf2f047c19c7ef4a045354e67", "Name": "Float32" },
+        "Array": false,
+        "Visibility": 0,
+        "EditorOnly": false,
+        "Versioned": true
+    }],
+    "DefaultValue": {
+        "Type": { "Id": "c72d80df66d14a7d978e8d84985aaf16", "Name": "FireCooldown" },
+        "Properties": {
+            "TimeOut": 10
+        }
+    }
+}]

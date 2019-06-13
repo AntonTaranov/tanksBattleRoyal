@@ -8,8 +8,8 @@ namespace game {
         
         OnUpdate():void {
 
-            this.world.forEach([ut.Entity, game.PlayerInput, ut.Core2D.TransformLocalPosition, ut.Core2D.TransformLocalRotation, game.TankState, game.MovingObject],
-                (entity, input, transformPosition, transformRotation, tank, movingObject) =>{
+            this.world.forEach([ut.Entity, ut.Core2D.TransformLocalPosition, ut.Core2D.TransformLocalRotation, game.TankState, game.MovingObject],
+                (entity, transformPosition, transformRotation, tank, movingObject) =>{
 
                     if(this.world.hasComponent(entity, game.HitWall))
                     {
@@ -29,6 +29,17 @@ namespace game {
                         transformRotation.rotation = transformRotation.rotation.setFromEuler(rotation);
 
                         return;
+                    }
+
+                    var input;
+
+                    if (this.world.hasComponent(entity, game.PlayerInput))
+                    {
+                        input = this.world.getComponentData(entity, game.PlayerInput);
+                    } 
+                    else if (this.world.hasComponent(entity, game.AIInput))
+                    {
+                        input = this.world.getComponentData(entity, game.AIInput);
                     }
 
                     if (input.Axis.y != 0)
@@ -98,6 +109,18 @@ namespace game {
                         let gameConfig = new game.GameConfig();
                         gameConfig.MainPlayerPosition = new Vector2(x, y);
                         this.world.setConfigData(gameConfig);
+                    }
+
+                    if (!this.world.hasComponent(entity, game.FireCooldown) && input.Space)
+                    {
+                        game.BulletUtils.fireBullet(this.world, new Vector2(transformPosition.position.x, transformPosition.position.y), 
+                            new Vector2(moveDirection.x, moveDirection.y), 0.5);
+
+                        this.world.addComponent(entity, game.FireCooldown);
+                        this.world.usingComponentData(entity, [game.FireCooldown], (cooldown) => {
+
+                            cooldown.TimeOut = 3;
+                        });
                     }
                 }
             );
