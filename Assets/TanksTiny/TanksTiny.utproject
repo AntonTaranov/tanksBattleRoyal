@@ -59,8 +59,9 @@
         { "Id": "a1b50987659c653138795a8f4079fc10", "Name": "UTiny.Math" },
         { "Id": "ce3f1bd7050540b70d450a606e226ea2", "Name": "UTiny.Shared" },
         { "Id": "49739a0cfcd14025809e4ea405a8e26a", "Name": "Main" },
-        { "Id": "36f73ad23c8a63c53fa510f0621474f5", "Name": "UTiny.HitBox2D" },
-        { "Id": "259902b84b3ed0f7213a1b5e37040709", "Name": "UTiny.Physics2D" }
+        { "Id": "259902b84b3ed0f7213a1b5e37040709", "Name": "UTiny.Physics2D" },
+        { "Id": "e46c24fb4d9a01e79b109bbcf6d24260", "Name": "UTiny.UILayout" },
+        { "Id": "0b0e260844fa6632977aa15579b42291", "Name": "UTiny.Text" }
     ],
     "StartupEntityGroup": { "Id": "77bcb663073340a8aeb1c3cd75bebc46", "Name": "Bootstrap" }
 },
@@ -79,8 +80,18 @@
             "autoSizeToFrame": true
         }
     }, {
-        "Type": { "Id": "38283a6cef9faa790b5c9936163d59e3", "Name": "Physics2DConfig" }
+        "Type": { "Id": "38283a6cef9faa790b5c9936163d59e3", "Name": "Physics2DConfig" },
+        "Properties": {
+            "gravity": {
+                "Type": { "Id": "3abb69286ddfc2d1c617a173c1eeb35d", "Name": "Vector2" },
+                "Properties": {
+                    "y": 0
+                }
+            }
+        }
     }, {
         "Type": { "Id": "5f937644c6bd4e8190832d0569597c90", "Name": "GameConfig" }
+    }, {
+        "Type": { "Id": "3ea5f3c220ff4ac592717fd085d94a4d", "Name": "Gravity" }
     }]
 }]

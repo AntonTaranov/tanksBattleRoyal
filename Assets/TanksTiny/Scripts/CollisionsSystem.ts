@@ -3,21 +3,20 @@ namespace game {
 
     /** New System */
     @ut.executeAfter(ut.Shared.UserCodeStart)
-    @ut.executeAfter(ut.HitBox2D.HitBox2DSystem)
-
     @ut.executeBefore(ut.Shared.UserCodeEnd)
-    @ut.requiredComponents(ut.HitBox2D.HitBoxOverlapResults)
+    @ut.requiredComponents(ut.Physics2D.ColliderContacts)
 
     export class CollisionsSystem extends ut.ComponentSystem {
         
         OnUpdate():void {
-            this.world.forEach([ut.Entity, ut.HitBox2D.HitBoxOverlapResults],
-                (entity, hitboxoverlapresults, movingObject, transform) => {
-                    if (hitboxoverlapresults.overlaps.length == 0){
+            this.world.forEach([ut.Entity, ut.Physics2D.ColliderContacts],
+                (entity, collidercontacts) => {
+                    if (collidercontacts.contacts.length == 0){
                         return;
                     }
-                    for (let i = 0; i < hitboxoverlapresults.overlaps.length; i++) {
-                        let otherEntity = hitboxoverlapresults.overlaps[i].otherEntity;
+                   
+                    for (let i = 0; i < collidercontacts.contacts.length; i++) {
+                        let otherEntity = collidercontacts.contacts[i];
                         if(!this.world.exists(otherEntity)){
                             continue;
                         }

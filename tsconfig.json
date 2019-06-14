@@ -24,8 +24,10 @@
         "Library/PackageCache/com.unity.tiny@0.14.5-preview/Runtime/Modules/UTiny.RendererGL/**/*.ts",
         "Library/PackageCache/com.unity.tiny@0.14.5-preview/Runtime/Modules/UTiny.Sprite2D/**/*.ts",
         "Library/PackageCache/com.unity.tiny@0.14.5-preview/Runtime/Modules/UTiny.EditorExtensions/**/*.ts",
-        "Library/PackageCache/com.unity.tiny@0.14.5-preview/Runtime/Modules/UTiny.HitBox2D/**/*.ts",
-        "Library/PackageCache/com.unity.tiny@0.14.5-preview/Runtime/Modules/UTiny.Physics2D/**/*.ts"
+        "Library/PackageCache/com.unity.tiny@0.14.5-preview/Runtime/Modules/UTiny.Physics2D/**/*.ts",
+        "Library/PackageCache/com.unity.tiny@0.14.5-preview/Runtime/Modules/UTiny.UILayout/**/*.ts",
+        "Library/PackageCache/com.unity.tiny@0.14.5-preview/Runtime/Modules/UTiny.Text/**/*.ts",
+        "Library/PackageCache/com.unity.tiny@0.14.5-preview/Runtime/Modules/UTiny.TextHTML/**/*.ts"
     ],
     "exclude": [],
     "files": [

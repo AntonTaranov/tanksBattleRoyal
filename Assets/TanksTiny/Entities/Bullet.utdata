@@ -43,21 +43,25 @@
             "order": 1
         }
     }, {
-        "Type": { "Id": "a015bc52c7befa4d7484891d74d2b574", "Name": "RectHitBox2D" },
-        "Properties": {
-            "box": {
-                "Type": { "Id": "f216da154c4054842adb590807e977ba", "Name": "Rect" },
-                "Properties": {
-                    "x": -0.05,
-                    "y": -0.05,
-                    "width": 0.1,
-                    "height": 0.1
-                }
-            }
-        }
-    }, {
         "Type": { "Id": "3ebccbbd1d6643db8648852a7b3ded8b", "Name": "MovingObject" }
     }, {
         "Type": { "Id": "27c4a32d58e047deb53f4c69327e785c", "Name": "Bullet" }
+    }, {
+        "Type": { "Id": "efb8f1bb8e61304f4854daecbaeb2747", "Name": "CircleCollider2D" },
+        "Properties": {
+            "radius": 0.05
+        }
+    }, {
+        "Type": { "Id": "dad15a16473d1a6264af416ae1e47833", "Name": "RigidBody2D" },
+        "Properties": {
+            "bodyType": {
+                "$TypeId": 8,
+                "Type": { "Id": "a4afdb83c635db286370870d059ac493", "Name": "BodyType" },
+                "Id": "5602293d3c8f73715a64943669328d32",
+                "Name": "Dynamic",
+                "Value": 2
+            },
+            "density": 5
+        }
     }]
 }]

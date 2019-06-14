@@ -31,23 +31,34 @@
     }, {
         "Type": { "Id": "1aad038af9b14316beb05aac022528fe", "Name": "TankState" }
     }, {
-        "Type": { "Id": "3ebccbbd1d6643db8648852a7b3ded8b", "Name": "MovingObject" }
-    }, {
         "Type": { "Id": "1b167762705c4d81836b5a26fb0f6649", "Name": "Enemy" }
     }, {
         "Type": { "Id": "dd6f4a26d83840ae83d69776fdfa349f", "Name": "AIInput" }
     }, {
-        "Type": { "Id": "a015bc52c7befa4d7484891d74d2b574", "Name": "RectHitBox2D" },
+        "Type": { "Id": "dad15a16473d1a6264af416ae1e47833", "Name": "RigidBody2D" },
         "Properties": {
-            "box": {
-                "Type": { "Id": "f216da154c4054842adb590807e977ba", "Name": "Rect" },
+            "bodyType": {
+                "$TypeId": 8,
+                "Type": { "Id": "a4afdb83c635db286370870d059ac493", "Name": "BodyType" },
+                "Id": "5602293d3c8f73715a64943669328d32",
+                "Name": "Dynamic",
+                "Value": 2
+            },
+            "freezeRotation": true,
+            "density": 1000
+        }
+    }, {
+        "Type": { "Id": "162ab289c4e402ee5358f3df0a331fa3", "Name": "BoxCollider2D" },
+        "Properties": {
+            "size": {
+                "Type": { "Id": "3abb69286ddfc2d1c617a173c1eeb35d", "Name": "Vector2" },
                 "Properties": {
-                    "x": -0.22,
-                    "y": -0.24,
-                    "width": 0.44,
-                    "height": 0.48
+                    "x": 0.44,
+                    "y": 0.46
                 }
             }
         }
+    }, {
+        "Type": { "Id": "4877aebd4079748a17f940cbbee5d2e6", "Name": "Velocity2D" }
     }]
 }]
